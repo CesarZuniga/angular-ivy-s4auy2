@@ -1,6 +1,10 @@
+<select (ngModelChange)="setEjercicio($event)">
+  <option value= "1"> Ejercicio 1 </option>
+  <option value= "2"> Ejercicio 2 </option>
+</select>
 <hello name="{{ name }}"></hello>
-<ng-container *ngFor="let num of numeros">
-  <p>
+<ng-container *ngIf="ejercicio === 2" >
+  <p *ngFor="let num of numeros">
   Numero: {{num.numero}} - {{num.descripcion}}
 </p>
-<ng-container>
+</ng-container>
