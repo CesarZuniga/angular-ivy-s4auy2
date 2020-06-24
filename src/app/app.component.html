@@ -1,8 +1,11 @@
-<select (ngModelChange)="setEjercicio($event)">
-  <option value= "1"> Ejercicio 1 </option>
-  <option value= "2"> Ejercicio 2 </option>
-</select>
+<input type="radio" name="ejercicio" (click)="setEjercicio(1)"> Ejercicio 1 
+<input type="radio" name="ejercicio" (click)="setEjercicio(2)" > Ejercicio 2
 <hello name="{{ name }}"></hello>
+<ng-container *ngIf="ejercicio === 1" >
+  <label>Texto</label>
+  <input #text (change)="esPalindromo(text.value)"/>
+  <p> {{text.value}} - {{esPalidromoDes}}</p>
+</ng-container>
 <ng-container *ngIf="ejercicio === 2" >
   <p *ngFor="let num of numeros">
   Numero: {{num.numero}} - {{num.descripcion}}
