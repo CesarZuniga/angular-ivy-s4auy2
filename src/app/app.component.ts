@@ -7,6 +7,7 @@ import { Component, VERSION } from '@angular/core';
 })
 export class AppComponent  {
   name = '';
+  total = '';
   numeros = new Array<Modelo>();
   ejercicio: number;
   esPalidromoDes = '';
@@ -35,6 +36,9 @@ export class AppComponent  {
      case 2:
        this.name = 'Muestre en pantalla los números del 1 al 100, sustituyendo los múltiplos de 3 por la palabra “Fizz” y, a su vez, los múltiplos de 5 por “Buzz”. Para los números que son múltiplos de 3 y 5 (como 15, 30, etc), utiliza el la palabra “FizzBuzz”'; 
        break;  
+     case 3:
+       this.name = 'Calcula el ahorro por dias consecutivos';
+       break;
      default:
        break;
    }
@@ -57,8 +61,16 @@ export class AppComponent  {
     }
     return valor === aux ? 'SI' : 'NO';
   }
+  calcular(valor: any){
+    if(!isNaN(Number(valor))){
+      const dias = Number(valor);
+      const total = (dias * (dias + 1)) / 2;
+      this.total = `Total: ${'$' + total}`;
+    } else{
+      this.total = '';
+    }
+  }
 }
-
 export class Modelo{
   numero: number;
   descripcion = '';

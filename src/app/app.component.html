@@ -1,5 +1,6 @@
 <input type="radio" name="ejercicio" (click)="setEjercicio(1)"> Ejercicio 1 
 <input type="radio" name="ejercicio" (click)="setEjercicio(2)" > Ejercicio 2
+<input type="radio" name="ejercicio" (click)="setEjercicio(3)"/> Ejercicio 3
 <hello name="{{ name }}"></hello>
 <ng-container *ngIf="ejercicio === 1" >
   <label>Texto</label>
@@ -10,4 +11,9 @@
   <p *ngFor="let num of numeros">
   Numero: {{num.numero}} - {{num.descripcion}}
 </p>
+</ng-container>
+<ng-container *ngIf="ejercicio === 3">
+  <label>Dias</label>
+  <input type="number" maxlength="3" #dias (change)="calcular(dias.value)"/>
+  <h4>{{total}}</h4>
 </ng-container>
